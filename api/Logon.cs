@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace XENA.TradingApi.Channels
+namespace XENA.API.Samples.Auth
 {
     public class Logon
     {        

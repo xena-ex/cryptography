@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using GenericWebSocketClient.Channels;
-using XENA.TradingApi.Cryptography;
+using XENA.API.Samples.Cryptography;
 
-namespace XENA.TradingApi.Channels
+namespace XENA.API.Samples.Auth
 {
-    public class AuthChannel: BaseChannel
+    public class AuthChannel
     {
         Logon _logon;
 
@@ -22,21 +20,6 @@ namespace XENA.TradingApi.Channels
             _logon.SendingTime = nonce;
             _logon.RawData = authPayload;
             _logon.Password = signature;
-
-            AwaitableSubscribeResponseMessage = new LoggedOn();
-        }
-
-        public override string Id { get => "auth"; protected set {} }
-
-        public override string Name => "auth";
-
-        public override object SubscribeMessage => _logon;
-
-        public override AwaitableSubscribeResponseMessage AwaitableSubscribeResponseMessage { get; } // TODO
-
-        public override void OnMessage(object msg)
-        {
-            throw new NotImplementedException();
         }
     }
 }
