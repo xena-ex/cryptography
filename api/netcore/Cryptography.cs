@@ -10,7 +10,7 @@ namespace XENA.API.Samples.Cryptography
     {
         public static string Sign(string apiKey, string data)
         {
-            var digest = SHA512.Create().ComputeHash(Encoding.ASCII.GetBytes(data));
+            var digest = SHA256.Create().ComputeHash(Encoding.ASCII.GetBytes(data));
             var keyInfo = ASN1.ParseASN1String(apiKey);
             if (!ASN1.NIST_P_256_CURVE.Equals(keyInfo.CurveNameHex, StringComparison.InvariantCultureIgnoreCase))
             {
